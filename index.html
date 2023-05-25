@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Tareas Clase 6</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='styles.css'>
+</head>
+
+<body>
+    <header id="header">
+        <h1> <img src="machinelearning.svg" alt="Logo machine learning"> </h1>
+    </header>
+
+    <form id="ages-calculator">
+        <label id='age-input-label' for="member-amount">Ingrese la cantidad de integrantes</label>
+        <input type="number" id="member-amount" placeholder="">
+        <button type="submit" id="show-members">Ingresar</button>
+        <button onClick="location.href=location.href" type="reset" id="reset">Resetear</button>
+        <div id="members">
+        </div>
+    </form>
+    <div id="new-button">
+        <p>La edad mayor es: <strong id="oldest"></strong></p>
+        <p>La menor edad es: <strong id="youngest"></strong></p>
+        <p>El promedio de edad es: <strong id="average"></strong></p>
+    </div>
+
+    <form id="familyInfo" class="familyinfo">
+        <h2>Crea una tarjeta de un familiar</h2>
+        <label id='name-label' for="familyMemberName">Nombre</label>
+        <input type="text" id="familyMemberName" placeholder="ingresa el nombre">
+        <label id='lastname-label' for="familyMemberLastName">Apellido</label>
+        <input type="text" id="familyMemberLastName" placeholder="ingresa el Apellido">
+        <label id='birth-year-label' for="familyMemberBirthYear">Año nacimiento</label>
+        <input type="number" id="familyMemberBirthYear" placeholder="ingresa el año">
+        <label id='city-label' for="familyMemberCity">Ciudad</label>
+        <input type="text" id="familyMemberCity" placeholder="ingresa el año">
+        <button type="submit" id="submitFamilyInfo">Crear Tarjeta</button>
+        <button onClick="location.href=location.href" type="reset" id="reset">Resetear</button>
+    </form>
+
+    <div id="familyMembersInformationCard">
+    </div>
+
+
+    <!-- La verdad es que anduve con poco tiempo esta semana. Solo arme algo basico para poder entregar. Probablemente no este bien utilizadas varias cosas de las que vimos.
+    No va a ser parte del proyecto final esto , voy a arrancar uno nuevo esta semana e ir implementando lo visto en clases a medida que vaya poniendome al dia y entendiendo mejor. Gracias -->
+
+    <script src='script.js'></script>
+</body>
+
+</html>
