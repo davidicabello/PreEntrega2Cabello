@@ -149,7 +149,7 @@ class FamilyMemberInformation {
             this.lastname = lastname,
             this.birthyear = birthyear,
             this.city = city
-    }
+    };
 }
 
 FamilyMemberInformation.prototype.createHtmlCard = function () {
