@@ -144,8 +144,9 @@ function findBiggest(numbers) {
 // #familyMemberName
 
 class FamilyMemberInformation {
-    constructor(name, lastname, birthyear, city) {
-        this.name = name,
+    constructor(image, name, lastname, birthyear, city) {
+        this.imageSrc = image,
+            this.name = name,
             this.lastname = lastname,
             this.birthyear = birthyear,
             this.city = city
@@ -156,6 +157,10 @@ FamilyMemberInformation.prototype.createHtmlCard = function () {
     let card = document.createElement('div');
     card.classList.add('card');
 
+    let imageElement = document.createElement('img');
+    imageElement.src = this.imageSrc;
+    imageElement.alt = 'Family Member Image';
+
     let nameElement = document.createElement('h2');
     nameElement.textContent = this.name + ' ' + this.lastname;
 
@@ -164,12 +169,12 @@ FamilyMemberInformation.prototype.createHtmlCard = function () {
 
     let cityElement = document.createElement('p');
     cityElement.textContent = 'Ciudad: ' + this.city;
-
+    card.appendChild(imageElement)
     card.appendChild(nameElement);
     card.appendChild(birthYearElement);
     card.appendChild(cityElement);
 
-    let cardsContainer = document.getElementById('familyMembersInformationCard');
+    let cardsContainer = document.querySelector('#familyMembersInformationCard');
     cardsContainer.appendChild(card);
 };
 
@@ -181,10 +186,22 @@ familyMemberInfoForm.addEventListener('submit', function (event) {
     let familyMemberLastName = document.querySelector('#familyMemberLastName').value;
     let familyMemberBirthYear = parseInt(document.querySelector('#familyMemberBirthYear').value);
     let familyMemberCity = document.querySelector('#familyMemberCity').value;
-    let familyMemberFinalInfo = new FamilyMemberInformation(familyMemberName, familyMemberLastName, familyMemberBirthYear, familyMemberCity);
+    let familyMemberImage = document.querySelector('#familyMemberImage').files[0];
+    let familyMemberFinalInfo = new FamilyMemberInformation(familyMemberImage, familyMemberName, familyMemberLastName, familyMemberBirthYear, familyMemberCity);
     familyMemberFinalInfo.createHtmlCard();
+
+    // Guardar miembros en localStorage
+    let familyMembers = localStorage.getItem('familyMembers');
+    let familyMembersArray = familyMembers ? JSON.parse(familyMembers) : [];
+    familyMembersArray.push(familyMemberFinalInfo);
+    localStorage.setItem('familyMembers', JSON.stringify(familyMembersArray));
+
+
+    console.log(familyMembersArray)
+    console.log(familyMemberFinalInfo)
 });
 
+console.log(familyMembersArray)
 console.log(familyMemberFinalInfo)
 
 
