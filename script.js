@@ -186,7 +186,7 @@ familyMemberInfoForm.addEventListener('submit', function (event) {
     let familyMemberLastName = document.querySelector('#familyMemberLastName').value;
     let familyMemberBirthYear = parseInt(document.querySelector('#familyMemberBirthYear').value);
     let familyMemberCity = document.querySelector('#familyMemberCity').value;
-    let familyMemberImage = document.querySelector('#familyMemberImage').files[0];
+    let familyMemberImage = document.querySelector('#familyMemberImage').value;
     let familyMemberFinalInfo = new FamilyMemberInformation(familyMemberImage, familyMemberName, familyMemberLastName, familyMemberBirthYear, familyMemberCity);
     familyMemberFinalInfo.createHtmlCard();
 
